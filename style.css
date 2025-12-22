@@ -8,7 +8,10 @@ body {
     font-family: 'Georgia', serif;
     line-height: 1.6;
     color: #333;
-    background-color: #fafafa;
+    background-color: #fdfdfb;
+    background-image: 
+        radial-gradient(circle at 20% 80%, rgba(200, 220, 100, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(180, 200, 120, 0.06) 0%, transparent 50%);
 }
 
 header {
@@ -18,11 +21,11 @@ header {
     background-position: center;
     background-attachment: fixed;
     
-    /* Overlay for text readability (optional) */
-    /* background-color: rgba(102, 126, 234, 0.6);
+    /* Overlay for text readability (optional)
+    background-color: rgba(102, 126, 234, 0.6);
     background-blend-mode: overlay; */
     
-    color: white;
+    color: rgb(24, 46, 0);
     text-align: center;
     padding: 80px 20px;
     min-height: 60vh;
@@ -33,7 +36,7 @@ header {
 }
 
 h1 {
-    font-size: 4.5em;
+    font-size: 3.5em;
     margin-bottom: 10px;
     font-weight: normal;
     letter-spacing: 2px;
@@ -89,7 +92,7 @@ section {
 h2 {
     font-size: 2.5em;
     margin-bottom: 30px;
-    color: #667eea;
+    color: #7a9b4a;
     text-align: center;
     font-weight: normal;
 }
@@ -100,7 +103,7 @@ h2 {
     margin: 20px 0;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    border-left: 5px solid #667eea;
+    border-left: 5px solid #b8d878;
 }
 
 .event-card h3 {
@@ -116,7 +119,7 @@ h2 {
 
 .label {
     font-weight: bold;
-    color: #667eea;
+    color: #7a9b4a;
 }
 
 .guests-section {
