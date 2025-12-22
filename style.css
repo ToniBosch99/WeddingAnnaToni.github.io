@@ -19,8 +19,8 @@ header {
     background-attachment: fixed;
     
     /* Overlay for text readability (optional) */
-    background-color: rgba(102, 126, 234, 0.6);
-    background-blend-mode: overlay;
+    /* background-color: rgba(102, 126, 234, 0.6);
+    background-blend-mode: overlay; */
     
     color: white;
     text-align: center;
