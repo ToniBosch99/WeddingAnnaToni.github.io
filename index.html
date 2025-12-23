@@ -3,77 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Wedding</title>
+    <title>Anna & Toni</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
 </head>
 <body>
     <header>
         <h1>Anna & Toni</h1>
-        <p class="subtitle">We are getting married!</p>
+        <p class="subtitle" data-i18n="subtitle"></h2>
         <div class="date-time">
             <p>April 10, 2026</p>
         </div>
+        <button class="lang-toggle" onclick="toggleLanguage()">EN</button>
     </header>
-
     <nav>
         <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#ceremony">Ceremony & Reception</a></li>
-            <li><a href="#photos">Photos</a></li>
-            <li><a href="#rsvp">RSVP</a></li>
+            <li><a href="#about" data-i18n="about"></a></li>
+            <li><a href="#ceremony" data-i18n="ceremony_title"></a></li>
+            <li><a href="#photos" data-i18n="gallery"></a></li>
+            <li><a href="#rsvp" data-i18n="rsvp"></a></li>
         </ul>
     </nav>
 
     <section id="about">
-        <p class="invitation-text">
-        Anna and Toni joyfully request the pleasure of your company as they speak their vows and join in marriage in the presence of family and friends.
-        </p>
-       <p class="invitation-subtext">
-            We’ll begin with the ceremony, followed by the reception at the hotel.<br>
-            <span class="dress-code">Dress code: black tie optional.</span>
-        </p>
+        <p class="invitation-text" data-i18n="invitation"></p>
+        <p class="invitation-subtext" data-i18n="subtext"></p>
     </section>
 
     <section id="ceremony">
-        <h2>Ceremony & Reception</h2>
+        <h2 data-i18n="ceremony_title"></h2>
         
         <div class="ceremony-reception-container">
             <div class="ceremony-item">
-                <h3>Ceremony</h3>
+                <h3 data-i18n="ceremony"></h3>
                 <h4>Ermita de Sant Joan de Can Roure</h4>
                 <a href="https://maps.app.goo.gl/REgoHHVbLeNiM9Jx7" target="_blank" class="image-link">
                     <img src="images/Ceremony.png" alt="Ermita de Sant Joan de Can Roure" class="event-image">
                 </a>
-                <p><span class="label">Time:</span> 5:00 PM</p>
-                <button class="small-details-btn" onclick="toggleCeremonyDetails()">+ Details</button>
+                <p><span class="label" data-i18n="time"></span> 5:00 PM</p>
+                <button class="small-details-btn" onclick="toggleCeremonyDetails()" data-i18n="details"></button>
                 <div id="ceremonyDetails" style="display: none; margin-top: 15px;">
-                    <p><span class="label">Duration:</span> Approximately 1 hour</p>
-                    <p><span class="label">Address:</span> Ermita de Sant Joan de Can Roure, Matadepera, 08230, Barcelona</p>
-                    <p><span class="label">Parking:</span> Free parking available beside</p>
+                    <p><span class="label" data-i18n="duration"></span> 
+                        <span data-i18n="durationCeremony"></span></p>
+                    <p><span class="label" data-i18n="address">
+                        </span> Ermita de Sant Joan de Can Roure, Matadepera, 08230, Barcelona</p>
+                    <p><span class="label" data-i18n="parking"></span>
+                         <span data-i18n="parkingCeremony"></span></p>
                     <p style="margin-top: 15px;">
                         <a href="https://maps.app.goo.gl/REgoHHVbLeNiM9Jx7" target="_blank" style="color: #7a9b4a; text-decoration: underline;">
-                    View on Google Maps
-                    </a>
+                            <span data-i18n="veureMaps"></span>
+                        </a>
                     </p>
                 </div>
             </div>
 
             <div class="ceremony-item">
-                <h3>Reception</h3>
+                <h3 data-i18n="reception"></h3>
                 <h4>Masia La Tartana</h4>
                 <a href="https://maps.app.goo.gl/udHAknXw5Ua3ioRb8" target="_blank" class="image-link">
                     <img src="images/Reception.png" alt="Masia La Tartana" class="event-image">
                 </a>
-                <p><span class="label">Time:</span> ~6:30 PM</p>
-                <button class="small-details-btn" onclick="toggleReceptionDetails()">+ Details</button>
+                <p><span class="label" data-i18n="time"></span> ~6:30 PM</p>
+                <button class="small-details-btn" onclick="toggleReceptionDetails()" data-i18n="details"></button>
                 <div id="receptionDetails" style="display: none; margin-top: 15px;">
-                    <p><span class="label">Duration:</span> From 6:30 pm to 3:00 am</p>
-                    <p><span class="label">Address:</span> Camí de la Font de la Tartana, 82, 08230 Matadepera, Barcelona</p>
-                    <p><span class="label">Parking:</span> Free parking available on-site</p>
+                    <p><span class="label" data-i18n="duration"></span> 
+                        <span data-i18n="durationReception"></span></p>
+                    <p><span class="label" data-i18n="address"></span> Camí de la Font de la Tartana, 82, 08230 Matadepera, Barcelona</p>
+                    <p><span class="label" data-i18n="parking"></span> 
+                        <span data-i18n="parkingReception"></span></p>
                     <p style="margin-top: 15px;">
                         <a href="https://maps.app.goo.gl/udHAknXw5Ua3ioRb8" target="_blank" style="color: #7a9b4a; text-decoration: underline;">
-                    View on Google Maps
+                    <span data-i18n="veureMaps"></span>
                     </a>
                     </p>
             </div>
@@ -82,7 +82,7 @@
 
 
     <section id="photos">
-        <h2>Gallery</h2>
+        <h2 data-i18n="gallery"></h2>
         <div class="gallery">
             <div class="gallery-item">Engagement Photo</div>
             <div class="gallery-item">Our Favorite Memory</div>
@@ -94,15 +94,12 @@
     </section>
 
     <section id="rsvp">
-        <h2>RSVP</h2>
-        <p style="text-align: center; margin-bottom: 30px;">
-            Please let us know if you can celebrate with us! RSVP by March 15, 2026.
-        </p>
-        
+        <h2 data-i18n="rsvp"></h2>
+        <p style="text-align: center; margin-bottom: 30px;" data-i18n="subRsvp"></p>
         <div class="guests-section">
             <form>
                 <div class="form-group">
-                    <label for="name">Your Name *</label>
+                    <label for="name" data-i18n="name"></label>
                     <input type="text" id="name" name="name" required>
                 </div>
 
@@ -112,42 +109,44 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="guests">Number of Guests *</label>
+                    <label for="guests" data-i18n="guests"></label>
                     <select id="guests" name="guests" required>
-                        <option value="">Select...</option>
-                        <option value="1">1 Guest</option>
-                        <option value="2">2 Guests</option>
-                        <option value="3">3 Guests</option>
-                        <option value="4">4 Guests</option>
+                        <option value="">1</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
                     </select>
                 </div>
 
                 <div class="form-group">
-                    <label for="attending">Will you attend? *</label>
+                    <label for="attending" data-i18n="attendQuestion"></label>
                     <select id="attending" name="attending" required>
-                        <option value="">Select...</option>
-                        <option value="yes">Yes, I'll be there!</option>
-                        <option value="no">Sorry, I can't attend</option>
-                        <option value="maybe">Unsure</option>
+                        <option value=""  data-i18n="maybe"></option>
+                        <option value="yes" data-i18n="attending"></option>
+                        <option value="no" data-i18n="not_attending"></option>
+                        <option value="maybe" data-i18n="maybe"></option>
                     </select>
                 </div>
 
                 <div class="form-group">
-                    <label for="dietary">Dietary Restrictions</label>
-                    <textarea id="dietary" name="dietary" placeholder="Let us know if you have any dietary needs..."></textarea>
+                    <label for="dietary" data-i18n="dietary"></label>
+                    <textarea id="dietary" name="dietary" data-i18n="home"></textarea>
                 </div>
 
                 <div class="form-group">
-                    <label for="message">Message for the Couple</label>
-                    <textarea id="message" name="message" placeholder="Share your wishes and warm regards..."></textarea>
+                    <label for="message" data-i18n="message"></label>
+                    <textarea id="message" name="message"></textarea>
                 </div>
 
                 <div class="form-group">
-                    <label for="song">A song that can't be missed </label>
-                    <textarea id="song" name="song" placeholder="Write here the title and author..."></textarea>
+                    <label for="song" data-i18n="song"></label>
+                    <textarea id="song" name="song"></textarea>
                 </div>
 
-                <button type="submit">Submit RSVP</button>
+                <button type="submit" data-i18n="submit"></button>
             </form>
         </div>
     </section>
