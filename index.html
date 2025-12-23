@@ -26,11 +26,12 @@
     </nav>
 
     <section id="about">
-        <h2>Anna and Toni joyfully request the pleasure of
-             your company as we speak our vows and join in marriage in the presence of family and friends.</h2>
-        <p style="text-align: center; font-size: 1.1em; line-height: 1.8;">
-            We'll start with the ceremony, then move to the hotel for the reception. 
-            Dress code will be black tie optional.
+        <p class="invitation-text">
+        Anna and Toni joyfully request the pleasure of your company as they speak their vows and join in marriage in the presence of family and friends.
+        </p>
+       <p class="invitation-subtext">
+            We’ll begin with the ceremony, followed by the reception at the hotel.<br>
+            <span class="dress-code">Dress code: black tie optional.</span>
         </p>
     </section>
 
@@ -40,15 +41,18 @@
         <div class="ceremony-reception-container">
             <div class="ceremony-item">
                 <h3>Ceremony</h3>
-                <h4>Esglèsia de Sant Joan de Can Roure</h4>
+                <h4>Ermita de Sant Joan de Can Roure</h4>
+                <a href="https://maps.app.goo.gl/REgoHHVbLeNiM9Jx7" target="_blank" class="image-link">
+                    <img src="images/Ceremony.png" alt="Ermita de Sant Joan de Can Roure" class="event-image">
+                </a>
                 <p><span class="label">Time:</span> 5:00 PM</p>
                 <button class="small-details-btn" onclick="toggleCeremonyDetails()">+ Details</button>
                 <div id="ceremonyDetails" style="display: none; margin-top: 15px;">
                     <p><span class="label">Duration:</span> Approximately 1 hour</p>
-                    <p><span class="label">Address:</span> 123 Wedding Lane, Beautiful City, State 12345</p>
-                    <p><span class="label">Parking:</span> Free parking available on-site</p>
+                    <p><span class="label">Address:</span> Ermita de Sant Joan de Can Roure, Matadepera, 08230, Barcelona</p>
+                    <p><span class="label">Parking:</span> Free parking available beside</p>
                     <p style="margin-top: 15px;">
-                        <a href="https://maps.google.com" target="_blank" style="color: #aaea66; text-decoration: underline;">
+                        <a href="https://maps.app.goo.gl/REgoHHVbLeNiM9Jx7" target="_blank" style="color: #7a9b4a; text-decoration: underline;">
                     View on Google Maps
                     </a>
                     </p>
@@ -58,14 +62,17 @@
             <div class="ceremony-item">
                 <h3>Reception</h3>
                 <h4>Masia La Tartana</h4>
-                <p><span class="label">Time:</span> 6:30 PM</p>
+                <a href="https://maps.app.goo.gl/udHAknXw5Ua3ioRb8" target="_blank" class="image-link">
+                    <img src="images/Reception.png" alt="Masia La Tartana" class="event-image">
+                </a>
+                <p><span class="label">Time:</span> ~6:30 PM</p>
                 <button class="small-details-btn" onclick="toggleReceptionDetails()">+ Details</button>
                 <div id="receptionDetails" style="display: none; margin-top: 15px;">
-                    <p><span class="label">Duration:</span> From 6:30 pm to 3:00 am 1 hour</p>
-                    <p><span class="label">Address:</span> 123 Wedding Lane, Beautiful City, State 12345</p>
+                    <p><span class="label">Duration:</span> From 6:30 pm to 3:00 am</p>
+                    <p><span class="label">Address:</span> Camí de la Font de la Tartana, 82, 08230 Matadepera, Barcelona</p>
                     <p><span class="label">Parking:</span> Free parking available on-site</p>
                     <p style="margin-top: 15px;">
-                        <a href="https://maps.google.com" target="_blank" style="color: #aaea66; text-decoration: underline;">
+                        <a href="https://maps.app.goo.gl/udHAknXw5Ua3ioRb8" target="_blank" style="color: #7a9b4a; text-decoration: underline;">
                     View on Google Maps
                     </a>
                     </p>
@@ -84,15 +91,12 @@
             <div class="gallery-item">Love & Laughter</div>
             <div class="gallery-item">Coming Soon</div>
         </div>
-        <p style="text-align: center; color: #999; margin-top: 20px;">
-            Photos are placeholders. Replace with your own images!
-        </p>
     </section>
 
     <section id="rsvp">
         <h2>RSVP</h2>
         <p style="text-align: center; margin-bottom: 30px;">
-            Please let us know if you can celebrate with us! RSVP by June 1, 2025.
+            Please let us know if you can celebrate with us! RSVP by March 15, 2026.
         </p>
         
         <div class="guests-section">
@@ -136,6 +140,11 @@
                 <div class="form-group">
                     <label for="message">Message for the Couple</label>
                     <textarea id="message" name="message" placeholder="Share your wishes and warm regards..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="song">A song that can't be missed </label>
+                    <textarea id="song" name="song" placeholder="Write here the title and author..."></textarea>
                 </div>
 
                 <button type="submit">Submit RSVP</button>

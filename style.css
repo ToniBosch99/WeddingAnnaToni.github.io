@@ -87,8 +87,33 @@ section {
     padding: 60px 20px;
     max-width: 900px;
     margin: 0 auto;
+    scroll-margin-top: 90px; /* also fixes nav issue – more below */
 }
 
+.invitation-text {
+    max-width: 700px;
+    margin: 0 auto 30px;
+    text-align: center;
+    font-size: 1.35em;
+    line-height: 1.8;
+    font-style: italic;
+    color: #555;
+}
+.invitation-text::after {
+    content: "❦";
+    display: block;
+    margin-top: 25px;
+    font-size: 1.2em;
+    color: #7a9b4a;
+}
+.invitation-subtext {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 1.05em;
+    line-height: 1.7;
+    color: #777;
+}
 #ceremony {
     background-color: #f5f9f2;
 }
@@ -138,6 +163,41 @@ h2 {
     margin: 20px 0;
 }
 
+.image-link {
+    display: block;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+}
+
+.image-link img {
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.image-link:hover img {
+    transform: scale(1.03);
+    filter: brightness(0.95);
+}
+
+.image-link::after {
+    content: "View on map";
+    position: absolute;
+    bottom: 10px;
+    right: 12px;
+    background: rgba(0,0,0,0.6);
+    color: white;
+    font-size: 0.8em;
+    padding: 4px 8px;
+    border-radius: 4px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.image-link:hover::after {
+    opacity: 1;
+}
+
+
 label {
     display: block;
     margin-bottom: 8px;
@@ -160,7 +220,7 @@ textarea {
 }
 
 button {
-    background: linear-gradient(135deg, #acea66 0%, #68a24b 100%);
+    /* background: linear-gradient(135deg, #acea66 0%, #68a24b 100%); */
     color: white;
     padding: 12px 30px;
     border: none;
@@ -168,6 +228,9 @@ button {
     font-size: 1.1em;
     cursor: pointer;
     transition: transform 0.3s, box-shadow 0.3s;
+    background: #7a9b4a;
+    border-radius: 999px;
+    font-size: 1em;
 }
 
 button:hover {
@@ -209,7 +272,10 @@ footer {
 }
 
 .ceremony-item {
-    padding: 20px 0;
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
 }
 
 .ceremony-item h3 {
@@ -222,6 +288,16 @@ footer {
     margin: 10px 0;
     font-size: 1em;
 }
+
+.event-image {
+    width: 100%;
+    max-height: 220px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin: 15px 0;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
 
 @media (max-width: 768px) {
     h1 {
@@ -238,5 +314,22 @@ footer {
 
     nav a {
         padding: 8px 15px;
+    }
+    
+    section {
+        scroll-margin-top: 120px;
+    }
+
+    .event-image {
+        max-height: 180px;
+    }
+
+    .invitation-text {
+        font-size: 1.15em;
+        padding: 0 10px;
+    }
+    .invitation-subtext {
+        font-size: 1em;
+        padding: 0 15px;
     }
 }

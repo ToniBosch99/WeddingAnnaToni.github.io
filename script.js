@@ -1,7 +1,7 @@
 function toggleCeremonyDetails() {
     const details = document.getElementById('ceremonyDetails');
     const btn = event.target;
-    
+
     if (details.style.display === 'none') {
         details.style.display = 'block';
         btn.textContent = '- Hide Details';
@@ -32,5 +32,18 @@ document.addEventListener('DOMContentLoaded', function() {
             alert('Thank you for your RSVP! We look forward to celebrating with you.');
             this.reset();
         });
+    }
+});
+
+
+window.addEventListener('scroll', function () {
+    const nav = document.querySelector('nav');
+
+    if (!nav) return;
+
+    if (window.scrollY > 80) {
+        nav.classList.add('shrink');
+    } else {
+        nav.classList.remove('shrink');
     }
 });
