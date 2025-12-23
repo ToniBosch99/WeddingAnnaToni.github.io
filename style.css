@@ -322,17 +322,34 @@ footer {
         font-size: 1.8em;
     }
 
+    nav {
+        padding: 8px 0;
+    }
+
     nav ul {
         flex-direction: column;
+        gap: 0;
     }
 
     nav a {
-        padding: 8px 15px;
+        padding: 6px 15px;
+        font-size: 0.95em;
     }
     
     section {
         scroll-margin-top: 130px;
+        padding: 40px 15px;
     }
+
+    /* Change ceremony-reception to single column on mobile */
+    .ceremony-reception-container {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    .ceremony-item {
+        padding: 20px;
+    }
+    
 
     .event-image {
         max-height: 180px;
