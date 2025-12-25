@@ -50,7 +50,7 @@ const translations = {
         invitation:
             "We are thrilled to share this special day with you.",
         subtext:
-            "We look forward to seeing you on Friday, April 10th at 5:00 pm at the Hermitage of Sant Joan de Can Roure (Matadepera) followed by dinner at Masia La Tartana .",
+            "We look forward to seeing you on Friday, April 10th at 5:00 pm at the Chapel of Sant Joan de Can Roure (Matadepera) followed by dinner at Masia La Tartana .",
         ceremony_title: "Ceremony & Reception",
         ceremony: "Ceremony",
         reception: "Reception",
@@ -59,7 +59,7 @@ const translations = {
         duration: "Duration:",
         durationCeremony: "Approximately 1 hour",
         durationReception: "From 6:30 pm to 3:00 am",
-        parkingCeremony: "Free parking available beside the hermitage",
+        parkingCeremony: "Free parking available beside the chapel",
         parkingReception: "Free parking available on-site",
         address: "Address:",
         parking: "Parking:",
@@ -73,7 +73,7 @@ const translations = {
         nameExtra: "Your Guest's Name *",
         attending: "Yes, I'll be there!",
         not_attending: "Sorry, I can't attend", 
-        maybe: "No estic segur",
+        maybe: "I'm not sure",
         guests: "Number of Guests",
         dietary: "Dietary Restrictions",
         submit: "Submit RSVP",
