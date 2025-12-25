@@ -369,7 +369,7 @@ footer {
 
 @media (max-width: 768px) {
     header {
-        min-height: 85vh;
+        min-height: 75vh;
         padding: 100px 15px;
         background-attachment: scroll;
     }
@@ -381,7 +381,9 @@ footer {
     h2 {
         font-size: 1.8em;
     }
-
+    .date-time {
+        font-size: 1.8em;
+    }
     nav {
         padding: 8px 0;
     }
@@ -415,11 +417,11 @@ footer {
     }
 
     .invitation-text {
-        font-size: 1.15em;
+        font-size: 1.5em;
         padding: 0 10px;
     }
     .invitation-subtext {
-        font-size: 1em;
+        font-size: 1.8em;
         padding: 0 15px;
     }
 }
