@@ -24,7 +24,6 @@ const translations = {
         notes: "Notes:",
         veureMaps: "Veure a Google Maps",
         gallery: "Fotos",
-        
         rsvp: "Confirmeu la vostra assistència",
         subRsvp: "Si us plau, confirmeu si podreu celebrar-ho amb nosaltres! Confirmeu l'assistència abans del 15 de març de 2026.",
         name: "El teu nom *",
@@ -37,7 +36,9 @@ const translations = {
         attendQuestion: "Assistireu a la nostra boda?*",
         message: "Missatge per als nuvis",
         song: "Una cançó per al nostre casament",
-        about: "Sobre"
+        about: "Sobre",
+        adress:"Adreça *",
+        final: "No podem esperar per celebrar aquest dia amb vosaltres!"
 
     },
 
@@ -75,7 +76,9 @@ const translations = {
         attendQuestion: "Will you attend our wedding?*",
         message: "Message for the Couple",
         song: "A song that can't be missed",
-        about: "About"
+        about: "About",
+        adress: "Adress *",
+        final: "We can't wait to celebrate this day with you!"
 
     }
 };
@@ -98,7 +101,6 @@ function toggleLanguage() {
 }
 
 /* ALTRES FUNCIONS */
-
 function toggleCeremonyDetails() {
     const details = document.getElementById('ceremonyDetails');
     const btn = event.target;
@@ -124,6 +126,59 @@ function toggleReceptionDetails() {
         btn.textContent = '+ Details';
     }
 }
+
+/* GALLERY LOADER */
+function loadGallery() {
+    // ðŸ“¸ Add your photo filenames here (stored in 'images' folder)
+    const photos = [
+        'foto1.jpg',
+        'foto2.jpg',
+        'foto3.jpg',
+        'foto4.jpg',
+        'foto5.jpg',
+        'foto6.jpg',
+        'foto7.jpg',
+        'foto8.jpg',
+        'foto9.jpg',
+        'foto10.jpg',
+        'foto11.jpg',
+        'foto12.jpg',
+        'foto13.jpg',
+        'foto14.jpg',
+        'foto15.jpg'
+        // Add or remove photos as needed
+    ];
+    
+    const photosSection = document.getElementById('photos');
+    
+    // Check if gallery already exists
+    if (!photosSection || photosSection.querySelector('.gallery')) {
+        return;
+    }
+    
+    // Create gallery container
+    const galleryContainer = document.createElement('div');
+    galleryContainer.className = 'gallery';
+    
+    // Create gallery items for each photo
+    photos.forEach((photo, index) => {
+        const galleryItem = document.createElement('div');
+        galleryItem.className = 'gallery-item';
+        
+        const img = document.createElement('img');
+        img.src = `images/galeria/${photo}`; // Adjust path if your folder is different
+        img.alt = `Wedding photo ${index + 1}`;
+        img.loading = 'lazy'; // Lazy loading for better performance
+        
+        galleryItem.appendChild(img);
+        galleryContainer.appendChild(galleryItem);
+    });
+    
+    photosSection.appendChild(galleryContainer);
+}
+
+// Call the function when page loads
+document.addEventListener('DOMContentLoaded', loadGallery);
 
 // Event Listeners
 document.addEventListener("DOMContentLoaded", function () {

@@ -83,14 +83,7 @@
 
     <section id="photos">
         <h2 data-i18n="gallery"></h2>
-        <div class="gallery">
-            <div class="gallery-item">Engagement Photo</div>
-            <div class="gallery-item">Our Favorite Memory</div>
-            <div class="gallery-item">Adventure Together</div>
-            <div class="gallery-item">More Moments</div>
-            <div class="gallery-item">Love & Laughter</div>
-            <div class="gallery-item">Coming Soon</div>
-        </div>
+        <!-- Gallery will be loaded dynamically by JavaScript -->
     </section>
 
     <section id="rsvp">
@@ -107,17 +100,18 @@
                     <label for="email">Email *</label>
                     <input type="email" id="email" name="email" required>
                 </div>
+                
+                <div class="form-group">
+                    <label for="adress" data-i18n="adress"></label>
+                    <input type="adress" id="adress" name="adress" required>
+                </div>
 
                 <div class="form-group">
                     <label for="guests" data-i18n="guests"></label>
                     <select id="guests" name="guests" required>
-                        <option value="">1</option>
+                        <option value="">...</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
                     </select>
                 </div>
 
@@ -153,8 +147,7 @@
 
     <footer>
         <p>&copy; 2025 Anna & Toni. All rights reserved.</p>
-        <p style="margin-top: 10px; font-size: 0.9em;">
-            We can't wait to celebrate with you!
+        <p style="margin-top: 10px; font-size: 0.9em;" data-i18n="final"></p>
         </p>
     </footer>
 </body>
