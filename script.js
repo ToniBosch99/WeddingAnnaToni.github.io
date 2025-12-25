@@ -27,6 +27,7 @@ const translations = {
         rsvp: "Confirmeu la vostra assistència",
         subRsvp: "Si us plau, confirmeu si podreu celebrar-ho amb nosaltres! Confirmeu l'assistència abans del 15 de març de 2026.",
         name: "El teu nom *",
+        nameExtra: "Nom del teu acompanyant *",
         attending: "Assistiré",
         not_attending: "No podré assistir",
         maybe: "No estic segur",
@@ -67,6 +68,7 @@ const translations = {
         rsvp: "RSVP",
         subRsvp: "Please let us know if you can celebrate with us! RSVP by March 15, 2026.",
         name: "Your Name *",
+        nameExtra: "Your Guest's Name *",
         attending: "Yes, I'll be there!",
         not_attending: "Sorry, I can't attend", 
         maybe: "No estic segur",
@@ -124,6 +126,53 @@ function toggleReceptionDetails() {
     } else {
         details.style.display = 'none';
         btn.textContent = '+ Details';
+    }
+}
+
+// Para  +1s
+
+document.addEventListener('DOMContentLoaded', function() {
+    const guestSelect = document.getElementById('guests');
+    
+    guestSelect.addEventListener('change', function() {
+        const numGuests = parseInt(this.value);
+        const form = document.querySelector('form');
+        
+        // Remove existing guest forms if any
+        const existingGuestForms = form.querySelectorAll('.guest-form-group');
+        existingGuestForms.forEach(el => el.remove());
+        
+        // If 2 guests selected, add second guest form
+        if (numGuests === 2) {
+            // Find the guests form group to insert after it
+            const guestFormGroup = guestSelect.closest('.form-group');
+            
+            // Create new form group for second guest
+            const newFormGroup = document.createElement('div');
+            newFormGroup.className = 'form-group guest-form-group';
+            newFormGroup.innerHTML = `
+                <label for="guest2_name" data-i18n="nameExtra"></label>
+                <input type="text" id="guest2_name" name="guest2_name" required>
+            `;
+            
+            // Insert after the guests dropdown
+            guestFormGroup.insertAdjacentElement('afterend', newFormGroup);
+            
+            // Re-apply translations if language feature is active
+            if (typeof setLanguage !== 'undefined') {
+                updateNewFieldTranslations();
+            }
+        }
+    });
+});
+
+// Helper function to translate newly added fields
+function updateNewFieldTranslations() {
+    const label = document.querySelector('.guest-form-group label[data-i18n]');
+    if (label) {
+        const key = label.dataset.i18n;
+        const translation = translations[currentLang][key];
+        label.textContent = translation;
     }
 }
 

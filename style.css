@@ -16,16 +16,16 @@ body {
 
 header {
     /* REPLACE THIS LINE WITH YOUR CANVA IMAGE */
-    background-image: url('images/fondoFloral.png');
+    background-image: url('images/galeria/prova2.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
     
-    /* Overlay for text readability (optional)
-    background-color: rgba(102, 126, 234, 0.6);
-    background-blend-mode: overlay; */
+    /* Overlay for text readability (optional)*/
+    background-color: rgba(216, 251, 164, 0.342);
+    background-blend-mode: overlay;
     
-    color: rgb(25, 46, 0);
+    color: rgb(238, 255, 218);
     text-align: center;
     padding: 80px 20px;
     min-height: 60vh;
@@ -42,6 +42,10 @@ h1 {
     letter-spacing: 2px;
 }
 
+header h1, header p {
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+}
+
 .subtitle {
     font-size: 1.5em;
     font-style: italic;
@@ -55,10 +59,10 @@ h1 {
 }
 
 .lang-toggle {
-    background: none;
+    background:#7a9b4a;
     border: none;
     font-weight: bold;
-    color: #7a9b4a;
+    color: #ffffff;
     cursor: pointer;
     margin-left: 15px;
     font-size: 0.9em;
@@ -343,6 +347,20 @@ footer {
     box-shadow: 0 4px 8px rgba(0,0,0,0.15);
 }
 
+.guest-form-group {
+    animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
 @media (max-width: 768px) {
     h1 {
