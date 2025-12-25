@@ -8,7 +8,7 @@ const translations = {
         invitation:
             "Ens fa molta il·lusió compartir aquest dia tant especial amb vosaltres.",
         subtext:
-            "Us esperem el divendres 10 d'Abril a les 17:00 pm a l'Ermita de Sant Joan de Can Roure (Matadepera) i després soparem a la masia La Tartana.",
+            "Us esperem el divendres 10 d'Abril a les 05:00 pm a l'Ermita de Sant Joan de Can Roure (Matadepera) i després soparem a la masia La Tartana.",
         ceremony_title: "Cerimònia i Celebració",
         ceremony: "Cerimònia",
         reception: "Celebració",
@@ -37,10 +37,10 @@ const translations = {
         submit: "Enviar",
         attendQuestion: "Assistireu a la nostra boda?*",
         message: "Missatge per als nuvis",
-        song: "Una cançó per al nostre casament",
+        song: "Una cançó per a que soni al nostre casament",
         about: "Sobre",
         adress:"Adreça *",
-        final: "No podem esperar per celebrar aquest dia amb vosaltres!"
+        final: "Us hi esperem!"
 
     },
 
@@ -82,7 +82,7 @@ const translations = {
         song: "A song that can't be missed",
         about: "About",
         adress: "Adress *",
-        final: "We can't wait to celebrate this day with you!"
+        final: "Looking forward to see you!"
 
     }
 };
