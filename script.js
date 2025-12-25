@@ -4,10 +4,11 @@ let currentLang = "ca";
 const translations = {
     ca: {
         subtitle: "Ens casem!",
+        date: "Divendres 10 d'Abril de 2026",
         invitation:
-            "L’Anna i en Toni tenen el plaer de convidar-vos a compartir amb ells el moment en què s’uniran en matrimoni en presència de família i amics.",
+            "Ens fa molta il·lusió compartir aquest dia tant especial amb vosaltres.",
         subtext:
-            "La cerimònia donarà inici a la celebració, seguida del banquet al restaurant.",
+            "Us esperem el divendres 10 d'Abril a les 17:00 pm a l'Ermita de Sant Joan de Can Roure (Matadepera) i després soparem a la masia La Tartana.",
         ceremony_title: "Cerimònia i Celebració",
         ceremony: "Cerimònia",
         reception: "Celebració",
@@ -45,10 +46,11 @@ const translations = {
 
     en: {
         subtitle: "We are getting married!",
+        date: "Friday, April 10th, 2026",
         invitation:
-            "Anna and Toni joyfully request the pleasure of your company as they speak their vows and join in marriage in the presence of family and friends.",
+            "We are thrilled to share this special day with you.",
         subtext:
-            "The ceremony will be followed by the reception at the venue.",
+            "We look forward to seeing you on Friday, April 10th at 5:00 pm at the Hermitage of Sant Joan de Can Roure (Matadepera) followed by dinner at Masia La Tartana .",
         ceremony_title: "Ceremony & Reception",
         ceremony: "Ceremony",
         reception: "Reception",
