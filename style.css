@@ -206,9 +206,6 @@ nav a:active {
     color: rgb(238, 255, 218);
 }
 
-#ceremony {
-    background-color: #f5f9f2;
-}
 
 h2 {
     font-size: 2.5em;
@@ -359,6 +356,10 @@ footer {
     display: block;
 }
 
+#ceremony {
+    background-color: #f5f9f2;
+}
+
 .ceremony-reception-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -460,7 +461,7 @@ footer {
     }
 
     section {
-        scroll-margin-top: 120;
+        scroll-margin-top: 150;
         padding: 40px 15px;
     }
 
