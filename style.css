@@ -19,6 +19,7 @@ section {
     max-width: 900px;
     margin: 0 auto;
     scroll-margin-top: 0px;
+    padding-top: 100px; 
 }
 
 header {
