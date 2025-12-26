@@ -99,7 +99,7 @@ function setLanguage(lang) {
 
     currentLang = lang;
     document.querySelector(".lang-toggle").textContent =
-        lang === "ca" ? "EN" : "CAT";
+        lang === "ca" ? "ENG" : "CAT";
 }
 
 function toggleLanguage() {
