@@ -10,6 +10,7 @@ const translations = {
         subtext:
             "Us esperem el divendres 10 d'Abril a les 05:00 pm a l'Ermita de Sant Joan de Can Roure (Matadepera) i després soparem a la masia La Tartana.",
         ceremony_title: "Cerimònia i Celebració",
+        home: "Inici",
         ceremony: "Cerimònia",
         reception: "Celebració",
         time: "Hora:",
@@ -52,6 +53,7 @@ const translations = {
         subtext:
             "We look forward to seeing you on Friday, April 10th at 5:00 pm at the Chapel of Sant Joan de Can Roure (Matadepera) followed by dinner at Masia La Tartana .",
         ceremony_title: "Ceremony & Reception",
+        home: "Home",
         ceremony: "Ceremony",
         reception: "Reception",
         time: "Time:",
