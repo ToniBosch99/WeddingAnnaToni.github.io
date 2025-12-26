@@ -502,7 +502,7 @@ footer {
     }
 
     section {
-        scroll-margin-top: 0;
+        scroll-margin-top: 120;
         padding: 40px 15px;
     }
 
@@ -526,8 +526,7 @@ footer {
         display: none !important;
     }
 
-    nav {
-        display: flex !important;
+nav {   
         position: sticky !important;
         background-color: white !important;
         padding: 15px 0 !important;
@@ -538,6 +537,7 @@ footer {
         top: 0 !important;
     }
 
+
     nav ul {
         flex-direction: row;
     }
@@ -546,6 +546,7 @@ footer {
         padding: 10px 20px;
         font-size: 1em;
         border-bottom: none;
+        justify-content: center;
     }
 
     .lang-toggle {
