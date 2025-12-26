@@ -14,27 +14,36 @@ body {
         radial-gradient(circle at 80% 20%, rgba(180, 200, 120, 0.06) 0%, transparent 50%);
 }
 
+section {
+    padding: 60px 20px;
+    max-width: 900px;
+    margin: 0 auto;
+    scroll-margin-top: 0px;
+}
+
 header {
-    /* REPLACE THIS LINE WITH YOUR CANVA IMAGE */
     background-image: url('images/galeria/prova2.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-    /* Overlay for text readability (optional)*/
     background-color: rgba(240, 252, 222, 0.342);
     background-blend-mode: overlay;
-    color: rgb(238, 255, 218);
+    color: rgb(240, 247, 233);
     text-align: center;
-    padding: 80px 20px;
-    min-height: 92vh;
+    
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 20px;
+    
+    height: 100vh;  /* FULL SCREEN HEIGHT */
+    width: 100%;
+    padding: 80px 20px;
 }
 
 h1 {
-    font-size: 4.5em;
+    font-size: clamp(2.5em, 8vw, 4.5em);
     margin-bottom: 20px;
     font-weight: normal;
     letter-spacing: 2px;
@@ -45,72 +54,123 @@ header h1, header p {
 }
 
 .subtitle {
-    font-size: 1.8em;
+    font-size: clamp(1.2em, 4vw, 1.8em);
     font-style: italic;
     margin-bottom: 20px;
     opacity: 0.95;
 }
 
 .date-time {
-    font-size: 2.1em;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    font-size: clamp(1.3em, 3.5vw, 2.1em);
+    margin: 20px 0;
 }
 
+/* HAMBURGER MENU - VISIBLE ON ALL SCREENS */
+.hamburger-menu {
+    display: flex;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 200;
+    background: rgba(255, 255, 255, 0.95);
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    padding: 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.hamburger-menu span {
+    display: block;
+    width: 24px;
+    height: 2.5px;
+    background: #7a9b4a;
+    transition: all 0.3s ease;
+    border-radius: 2px;
+}
+
+.hamburger-menu.active span:nth-child(1) {
+    transform: rotate(45deg) translateY(10px);
+}
+
+.hamburger-menu.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-menu.active span:nth-child(3) {
+    transform: rotate(-45deg) translateY(-10px);
+}
+
+/* LANGUAGE TOGGLE */
 .lang-toggle {
-    background:#7a9b4a;
+    background: #7a9b4a;
     border: none;
     font-weight: bold;
     color: #ffffff;
     cursor: pointer;
-    margin-left: 15px;
     font-size: 0.9em;
-    margin-top: 20px;
+    padding: 10px 15px;
+    border-radius: 8px;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 199;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 .lang-toggle:hover {
     text-decoration: underline;
 }
 
+/* REMOVE THE STICKY NAV BAR - HIDE IT COMPLETELY */
 nav {
-    background-color: white;
-    padding: 15px 0;
-    position: sticky;
+    display: none;
+    position: fixed;
     top: 0;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    z-index: 100;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: white;
+    z-index: 150;
+    padding-top: 80px;
+    overflow-y: auto;
+}
+
+/* SHOW NAV WHEN ACTIVE (hamburger is clicked) */
+nav.active {
+    display: flex;
+    flex-direction: column;
 }
 
 nav ul {
     list-style: none;
     display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+    flex-direction: column;
+    width: 100%;
+    gap: 0;
 }
 
 nav a {
     display: block;
-    padding: 10px 20px;
-    color: #4e773c;
+    padding: 20px 30px;
+    color: #7a9b4a;
     text-decoration: none;
     font-weight: bold;
-    transition: color 0.3s;
+    font-size: 1.3em;
+    text-align: center;
+    border-bottom: 1px solid rgba(122, 155, 74, 0.1);
+    transition: background 0.3s ease;
 }
 
-nav a:hover {
-    color: #74a24b;
-}
-
-/* Hide hamburger menu button on desktop */
-.hamburger-menu {
-    display: none;
-}
-
-section {
-    padding: 60px 20px;
-    max-width: 900px;
-    margin: 0 auto;
-    scroll-margin-top: 90px; /* also fixes nav issue – more below */
+nav a:hover,
+nav a:active {
+    background: rgba(122, 155, 74, 0.1);
 }
 
 .header-invitation {
@@ -122,7 +182,7 @@ section {
     max-width: 700px;
     margin: 0 auto 30px;
     text-align: center;
-    font-size: 1.35em;
+    font-size: clamp(1em, 2.5vw, 1.35em);
     line-height: 1.8;
     font-style: italic;
     color: rgb(238, 255, 218);
@@ -140,9 +200,9 @@ section {
     max-width: 600px;
     margin: 0 auto;
     text-align: center;
-    font-size: 1.05em;
+    font-size: clamp(0.9em, 2vw, 1.05em);
     line-height: 1.7;
-    color:rgb(238, 255, 218);
+    color: rgb(238, 255, 218);
 }
 
 #ceremony {
@@ -228,7 +288,6 @@ h2 {
     opacity: 1;
 }
 
-
 label {
     display: block;
     margin-bottom: 8px;
@@ -251,17 +310,14 @@ textarea {
 }
 
 button {
-    /* background: linear-gradient(135deg, #acea66 0%, #68a24b 100%); */
     color: white;
     padding: 12px 30px;
     border: none;
-    border-radius: 4px;
-    font-size: 1.1em;
+    border-radius: 999px;
+    font-size: 1em;
     cursor: pointer;
     transition: transform 0.3s, box-shadow 0.3s;
     background: #7a9b4a;
-    border-radius: 999px;
-    font-size: 1em;
 }
 
 button:hover {
@@ -295,37 +351,13 @@ footer {
     font-size: 0.9em;
 }
 
-/* Gallery Styles */
-.gallery-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 columns on desktop */
-    gap: 15px;
-    padding: 20px 0;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.gallery-item {
-    position: relative;
-    overflow: hidden;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    aspect-ratio: 1 / 1; /* Square photos */
-    background-color: #f0f0f0;
-}
-
-.gallery-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
-}
-
 .gallery-item img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
 }
+
 .ceremony-reception-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -370,15 +402,30 @@ footer {
         transform: translateY(-10px);
     }
     to {
-
         opacity: 1;
         transform: translateY(0);
     }
 }
 
+.small-details-btn {
+    background: #7a9b4a;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 999px;
+    font-size: 0.9em;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.small-details-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(122, 155, 74, 0.4);
+}
+
+/* MOBILE STYLES */
 @media (max-width: 768px) {
     
-    /* HEADER - Full screen on mobile */
     header {
         min-height: 100vh;
         padding: 40px 15px 60px 15px;
@@ -411,96 +458,6 @@ footer {
         padding: 0 15px;
     }
 
-    /* HAMBURGER MENU BUTTON */
-    .hamburger-menu {
-        display: flex;
-        position: fixed;
-        top: 20px;
-        left: 20px;
-        z-index: 200;
-        background: rgba(255, 255, 255, 0.95);
-        border: none;
-        width: 50px;
-        height: 50px;
-        border-radius: 8px;
-        cursor: pointer;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 5px;
-        padding: 0;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-    }
-
-    .hamburger-menu span {
-        display: block;
-        width: 24px;
-        height: 2.5px;
-        background: #7a9b4a;
-        transition: all 0.3s ease;
-        border-radius: 2px;
-    }
-
-    .hamburger-menu.active span:nth-child(1) {
-        transform: rotate(45deg) translateY(10px);
-    }
-
-    .hamburger-menu.active span:nth-child(2) {
-        opacity: 0;
-    }
-
-    .hamburger-menu.active span:nth-child(3) {
-        transform: rotate(-45deg) translateY(-10px);
-    }
-
-    /* NAVIGATION - Hidden by default on mobile */
-    nav {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100vh;
-        background: white;
-        z-index: 150;
-        padding-top: 80px;
-        box-shadow: none;
-    }
-
-    nav.active {
-        display: flex;
-        flex-direction: column;
-    }
-
-    nav ul {
-        flex-direction: column;
-        width: 100%;
-        gap: 0;
-    }
-
-    nav a {
-        padding: 20px 30px;
-        font-size: 1.3em;
-        color: #7a9b4a;
-        text-align: center;
-        border-bottom: 1px solid rgba(122, 155, 74, 0.1);
-        transition: background 0.3s ease;
-    }
-
-    nav a:active {
-        background: rgba(122, 155, 74, 0.1);
-    }
-
-    /* LANGUAGE TOGGLE */
-    .lang-toggle {
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        z-index: 199;
-        padding: 10px 15px;
-        font-size: 0.85em;
-    }
-
     section {
         scroll-margin-top: 90;
         padding: 40px 15px;
@@ -517,41 +474,5 @@ footer {
 
     .event-image {
         max-height: 180px;
-    }
-}
-
-/* Make sure hamburger is hidden on desktop */
-@media (min-width: 769px) {
-    .hamburger-menu {
-        display: none !important;
-    }
-
-nav {   
-        position: sticky !important;
-        background-color: white !important;
-        padding: 15px 0 !important;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1) !important;
-        z-index: 100 !important;
-        height: auto !important;
-        width: auto !important;
-        top: 0 !important;
-    }
-
-
-    nav ul {
-        flex-direction: row;
-    }
-
-    nav a {
-        padding: 10px 20px;
-        font-size: 1em;
-        border-bottom: none;
-        justify-content: center;
-    }
-
-    .lang-toggle {
-        position: static;
-        margin-top: 0;
-        margin-left: 15px;
     }
 }
