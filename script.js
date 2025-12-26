@@ -132,7 +132,6 @@ function toggleReceptionDetails() {
 }
 
 // Para  +1s
-
 document.addEventListener('DOMContentLoaded', function() {
     const guestSelect = document.getElementById('guests');
     
@@ -231,7 +230,7 @@ function loadGallery() {
 // Call the function when page loads
 document.addEventListener('DOMContentLoaded', loadGallery);
 
-// Event Listeners
+// -------------- Event Listeners
 document.addEventListener("DOMContentLoaded", function () {
     setLanguage("ca");
 
@@ -266,5 +265,36 @@ window.addEventListener('scroll', function () {
         nav.classList.add('shrink');
     } else {
         nav.classList.remove('shrink');
+    }
+});
+
+/* Mobile Menu Toggle */
+document.addEventListener('DOMContentLoaded', function() {
+    const hamburgerBtn = document.querySelector('.hamburger-menu');
+    const nav = document.querySelector('nav');
+    
+    if (hamburgerBtn) {
+        // Toggle menu when hamburger is clicked
+        hamburgerBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            hamburgerBtn.classList.toggle('active');
+            nav.classList.toggle('active');
+        });
+
+        // Close menu when a link is clicked
+        nav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', function() {
+                hamburgerBtn.classList.remove('active');
+                nav.classList.remove('active');
+            });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!nav.contains(e.target) && !hamburgerBtn.contains(e.target)) {
+                hamburgerBtn.classList.remove('active');
+                nav.classList.remove('active');
+            }
+        });
     }
 });

@@ -101,6 +101,11 @@ nav a:hover {
     color: #74a24b;
 }
 
+/* Hide hamburger menu button on desktop */
+.hamburger-menu {
+    display: none;
+}
+
 section {
     padding: 60px 20px;
     max-width: 900px;
@@ -372,11 +377,15 @@ footer {
 }
 
 @media (max-width: 768px) {
+    
     header {
-        min-height: 75vh;
-        padding: 100px 15px;
+        min-height: 100vh;  
+        padding: 80px 15px;
         background-attachment: scroll;
-        background-image: url('images/galeria/foto2.jpg');
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
 
     h1 {
@@ -384,49 +393,147 @@ footer {
     }
 
     h2 {
-        font-size: 1.15em;
+        font-size: 1.8em;
     }
+
     .date-time {
         font-size: 1.15em;
     }
+
+    .subtitle {
+        font-size: 1.4em;
+    }
+
+    .invitation-text {
+        font-size: 1.1em;
+        padding: 0 10px;
+    }
+
+    .invitation-subtext {
+        font-size: 0.95em;
+        padding: 0 15px;
+    }
+
+    /* Hamburger menu button */
+    .hamburger-menu {
+        display: flex;
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        z-index: 200;
+        background: rgba(255, 255, 255, 0.95);
+        border: none;
+        width: 50px;
+        height: 50px;
+        border-radius: 8px;
+        cursor: pointer;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        flex-direction: column;
+        gap: 5px;
+        padding: 0;
+    }
+
+    .hamburger-menu span {
+        display: block;
+        width: 24px;
+        height: 2.5px;
+        background: #7a9b4a;
+        transition: all 0.3s ease;
+        border-radius: 2px;
+    }
+
+    .hamburger-menu.active span:nth-child(1) {
+        transform: rotate(45deg) translateY(10px);
+    }
+
+    .hamburger-menu.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger-menu.active span:nth-child(3) {
+        transform: rotate(-45deg) translateY(-10px);
+    }
+
+    /* Navigation menu (hidden by default on mobile) */
     nav {
-        padding: 8px 0;
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: linear-gradient(135deg, #f5f9f2 0%, #fdfdfb 100%);
+        z-index: 150;
+        padding-top: 100px;
+    }
+
+    nav.active {
+        display: flex;
     }
 
     nav ul {
         flex-direction: column;
+        width: 100%;
         gap: 0;
     }
 
     nav a {
-        padding: 6px 15px;
-        font-size: 0.95em;
+        padding: 20px 30px;
+        font-size: 1.3em;
+        color: #7a9b4a;
+        text-align: center;
+        border-bottom: 1px solid rgba(122, 155, 74, 0.1);
+        transition: background 0.3s ease;
     }
-    
+
+    nav a:hover,
+    nav a:active {
+        background: rgba(122, 155, 74, 0.1);
+        color: #5a7a38;
+    }
+
+    /* Regular nav styling (desktop) */
+    nav {
+        background-color: white;
+        padding: 15px 0;
+        position: sticky;
+        top: 0;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        z-index: 100;
+    }
+
     section {
-        scroll-margin-top: 130px;
+        scroll-margin-top: 0;
         padding: 40px 15px;
     }
 
-    /* Change ceremony-reception to single column on mobile */
     .ceremony-reception-container {
         grid-template-columns: 1fr;
         gap: 15px;
     }
+
     .ceremony-item {
         padding: 20px;
     }
-    
+
     .event-image {
         max-height: 180px;
     }
 
-    .invitation-text {
-        font-size: 1.15em;
-        padding: 0 10px;
+    /* Language toggle adjustments */
+    .lang-toggle {
+        position: fixed;
+        top: 80px;
+        left: 20px;
+        z-index: 199;
+        padding: 8px 12px;
+        font-size: 0.8em;
     }
-    .invitation-subtext {
-        font-size: 1em;
-        padding: 0 15px;
+
+    /* Header adjustments for hamburger space */
+    header {
+        padding-top: 40px;
     }
 }
