@@ -255,7 +255,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-
 window.addEventListener('scroll', function () {
     const nav = document.querySelector('nav');
 
@@ -270,31 +269,21 @@ window.addEventListener('scroll', function () {
 
 /* Mobile Menu Toggle */
 document.addEventListener('DOMContentLoaded', function() {
-    const hamburgerBtn = document.querySelector('.hamburger-menu');
+    const hamburger = document.querySelector('.hamburger-menu');
     const nav = document.querySelector('nav');
     
-    if (hamburgerBtn) {
-        // Toggle menu when hamburger is clicked
-        hamburgerBtn.addEventListener('click', function(e) {
-            e.stopPropagation();
-            hamburgerBtn.classList.toggle('active');
+    if (hamburger) {
+        hamburger.addEventListener('click', function() {
+            hamburger.classList.toggle('active');
             nav.classList.toggle('active');
         });
 
-        // Close menu when a link is clicked
+        // Close menu when a nav link is clicked
         nav.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', function() {
-                hamburgerBtn.classList.remove('active');
+                hamburger.classList.remove('active');
                 nav.classList.remove('active');
             });
-        });
-
-        // Close menu when clicking outside
-        document.addEventListener('click', function(e) {
-            if (!nav.contains(e.target) && !hamburgerBtn.contains(e.target)) {
-                hamburgerBtn.classList.remove('active');
-                nav.classList.remove('active');
-            }
         });
     }
 });
