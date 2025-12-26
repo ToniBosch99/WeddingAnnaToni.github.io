@@ -122,6 +122,7 @@ section {
     font-style: italic;
     color: rgb(238, 255, 218);
 }
+
 .invitation-text::after {
     content: "❦";
     display: block;
@@ -129,6 +130,7 @@ section {
     font-size: 1.2em;
     color: rgb(238, 255, 218);
 }
+
 .invitation-subtext {
     max-width: 600px;
     margin: 0 auto;
@@ -137,6 +139,7 @@ section {
     line-height: 1.7;
     color:rgb(238, 255, 218);
 }
+
 #ceremony {
     background-color: #f5f9f2;
 }
@@ -362,6 +365,7 @@ footer {
         transform: translateY(-10px);
     }
     to {
+
         opacity: 1;
         transform: translateY(0);
     }
@@ -372,6 +376,7 @@ footer {
         min-height: 75vh;
         padding: 100px 15px;
         background-attachment: scroll;
+        background-image: url('images/galeria/foto2.jpg');
     }
 
     h1 {
