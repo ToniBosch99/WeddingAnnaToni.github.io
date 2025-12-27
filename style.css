@@ -461,8 +461,8 @@ footer {
     }
 
     section {
-        scroll-margin-top: 180;
-        padding: 40px 15px;
+        scroll-margin-top: 80px;
+        padding: 100px 15px 40px 15px;
     }
 
     .ceremony-reception-container {
