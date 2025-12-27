@@ -235,7 +235,7 @@ document.addEventListener('DOMContentLoaded', loadGallery);
 // API per la RSVP
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.querySelector('form');
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbz1I7k0DW8Z-naV2PYykzyVP5LJTqX9aPvqWWvGNxVu4Of5HF-qUahSmcuIfSmbjW7_/exec';
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbwfSWFnK9zep1gPIR3qcCsPAW-qZA5qwi3d3_HfsGqet17Mnz1ei2JV43h6K7IK2x9H/exec';
 
     if (form) {
         form.addEventListener('submit', function(e) {
