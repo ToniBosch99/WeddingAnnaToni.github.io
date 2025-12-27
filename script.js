@@ -235,7 +235,7 @@ document.addEventListener('DOMContentLoaded', loadGallery);
 // API per la RSVP
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.querySelector('form');
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbxqm0BnnpKUCJAktyTEHLy4yH2Cqbr_OAchWa1_4CSBc_azIpRCH5vS4Z3hmJu5iHSQ/exec';
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbxK6OJEWNuP8LZkYSpPpQbk_vhIvW_tdon7LrYrQw3HGAwY-9B-OSTvC91GZuTG8gx9/exec';
 
     if (form) {
         form.addEventListener('submit', function(e) {
@@ -260,7 +260,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 method: 'POST', 
                 body: new FormData(form)
             })
-            .then(response => {
+            .then(response => response.text())
+            .then(result => {
                 // Success feedback based on current language
                 const successMsg = (currentLang === "ca") 
                     ? "Gràcies per la vostra resposta!" 
@@ -268,16 +269,17 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 alert(successMsg);
                 
-                // Reset the form
-                form.reset();
-                
+
                 // Clean up the dynamic +1 guest field if it was added
                 const extraGuest = document.querySelector('.guest-form-group');
                 if (extraGuest) {
                     extraGuest.remove();
                 }
                 
-                if (response.trim() === "Success") {
+                // Reset the form
+                form.reset();
+                
+                if (result.trim() === "Success") {
                     // Hide the form
                     form.style.display = 'none';
                     
