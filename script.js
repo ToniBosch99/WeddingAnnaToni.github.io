@@ -133,7 +133,7 @@ function toggleReceptionDetails() {
     }
 }
 
-// Para  +1s
+// Per als  +1s
 document.addEventListener('DOMContentLoaded', function() {
     const guestSelect = document.getElementById('guests');
     
@@ -231,6 +231,61 @@ function loadGallery() {
 
 // Call the function when page loads
 document.addEventListener('DOMContentLoaded', loadGallery);
+
+// API per la RSVP
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.querySelector('form');
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbz1I7k0DW8Z-naV2PYykzyVP5LJTqX9aPvqWWvGNxVu4Of5HF-qUahSmcuIfSmbjW7_/exec';
+
+    if (form) {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Select the submit button to show loading state
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+            
+            // UI Feedback: Disable button and show "Sending..."
+            submitBtn.disabled = true;
+            submitBtn.textContent = (currentLang === "ca") ? "Enviant..." : "Sending...";
+
+            // Send data to Google Apps Script
+            fetch(scriptURL, { 
+                method: 'POST', 
+                body: new FormData(form)
+            })
+            .then(response => {
+                // Success feedback based on current language
+                const successMsg = (currentLang === "ca") 
+                    ? "Gràcies per la vostra resposta!" 
+                    : "Thank you for your RSVP! We look forward to celebrating with you.";
+                
+                alert(successMsg);
+                
+                // Reset the form
+                form.reset();
+                
+                // Clean up the dynamic +1 guest field if it was added
+                const extraGuest = document.querySelector('.guest-form-group');
+                if (extraGuest) {
+                    extraGuest.remove();
+                }
+            })
+            .catch(error => {
+                console.error('Error!', error.message);
+                const errorMsg = (currentLang === "ca")
+                    ? "S'ha produït un error. Torna-ho a provar."
+                    : "An error occurred. Please try again.";
+                alert(errorMsg);
+            })
+            .finally(() => {
+                // Re-enable button and restore text
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalText;
+            });
+        });
+    }
+});
 
 // -------------- Event Listeners
 document.addEventListener("DOMContentLoaded", function () {
