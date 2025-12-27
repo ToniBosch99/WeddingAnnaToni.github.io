@@ -41,7 +41,10 @@ const translations = {
         song: "Una cançó per a que soni al nostre casament",
         about: "Sobre",
         adress:"Adreça *",
-        final: "Us hi esperem!"
+        final: "Us hi esperem!",
+        thks: "Gràcies!",
+        thanks_title: "Gràcies!",
+        thanks_msg: "Hem rebut la vostra resposta correctament."
 
     },
 
@@ -84,7 +87,10 @@ const translations = {
         song: "A song that can't be missed",
         about: "About",
         adress: "Adress *",
-        final: "Looking forward to see you!"
+        final: "Looking forward to see you!",
+        thks: "Thank you!",
+        thanks_title: "Thank you!",
+        thanks_msg: "We have received your RSVP successfully."
 
     }
 };
@@ -263,11 +269,11 @@ document.addEventListener('DOMContentLoaded', function() {
             .then(response => response.text())
             .then(result => {
                 // Success feedback based on current language
-                const successMsg = (currentLang === "ca") 
-                    ? "Gràcies per la vostra resposta!" 
-                    : "Thank you for your RSVP! We look forward to celebrating with you.";
+                // const successMsg = (currentLang === "ca") 
+                //     ? "Gràcies per la vostra resposta!" 
+                //     : "Thank you for your RSVP! We look forward to celebrating with you.";
                 
-                alert(successMsg);
+                // alert(successMsg);
                 
 
                 // Clean up the dynamic +1 guest field if it was added
@@ -279,6 +285,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Reset the form
                 form.reset();
                 
+                console.log("Form submission result:", result);
+
                 if (result.trim() === "Success") {
                     // Hide the form
                     form.style.display = 'none';
