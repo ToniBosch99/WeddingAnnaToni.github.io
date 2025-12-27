@@ -295,23 +295,16 @@ document.addEventListener("DOMContentLoaded", function () {
     if (form) {
         form.addEventListener("submit", function (e) {
             e.preventDefault();
-            alert("Gràcies per la vostra resposta!");
+            const confMsg = (currentLang === "ca")
+                    ? "Estem enviant la teva resposta!"
+                    : "We are sending your RSVP!";
+                alert(confMsg);
             this.reset();
         });
     }
 });
 
-document.addEventListener('DOMContentLoaded', function() {
-    const form = document.querySelector('form');
-    if (form) {
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Thank you for your RSVP! We look forward to celebrating with you.');
-            this.reset();
-        });
-    }
-});
-
+/* Navbar Shrink on Scroll */
 window.addEventListener('scroll', function () {
     const nav = document.querySelector('nav');
 
