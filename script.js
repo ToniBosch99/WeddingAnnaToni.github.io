@@ -247,70 +247,36 @@ document.addEventListener('DOMContentLoaded', function() {
         form.addEventListener('submit', function(e) {
             e.preventDefault();
 
-            // Select the submit button to show loading state
+            // 1. Show Loading State
             const submitBtn = form.querySelector('button[type="submit"]');
             const originalText = submitBtn.textContent;
-            const formData = new FormData(form);
-
-            // UI Feedback: Disable button and show "Sending..."
             submitBtn.disabled = true;
             submitBtn.textContent = (currentLang === "ca") ? "Enviant..." : "Sending...";
 
-            console.log("Attempting to send data to Google...");
-            for (let [key, value] of formData.entries()) {
-                console.log(`${key}: ${value}`);
-            }
-
-            // Send data to Google Apps Script
-            fetch(scriptURL, { 
-                method: 'POST', 
-                body: new FormData(form)
-            })
-            .then(response => response.text())
-            .then(result => {
-                // Success feedback based on current language
-                // const successMsg = (currentLang === "ca") 
-                //     ? "Gràcies per la vostra resposta!" 
-                //     : "Thank you for your RSVP! We look forward to celebrating with you.";
-                
-                // alert(successMsg);
-                
-
-                // Clean up the dynamic +1 guest field if it was added
-                const extraGuest = document.querySelector('.guest-form-group');
-                if (extraGuest) {
-                    extraGuest.remove();
-                }
-                
-                // Reset the form
-                form.reset();
-                
-                console.log("Form submission result:", result);
-
-                if (result.trim() === "Success") {
-                    // Hide the form
-                    form.style.display = 'none';
-                    
-                    // Show the success message
-                    const successDiv = document.getElementById('form-success');
-                    successDiv.style.display = 'block';
-                    
-                    // Smooth scroll to the message
-                    successDiv.scrollIntoView({ behavior: 'smooth' });
-                }
-            })
-            .catch(error => {
-                console.error('Error!', error.message);
-                const errorMsg = (currentLang === "ca")
-                    ? "S'ha produït un error. Torna-ho a provar."
-                    : "An error occurred. Please try again.";
-                alert(errorMsg);
-            })
-            .finally(() => {
-                // Re-enable button and restore text
-                submitBtn.disabled = false;
-                submitBtn.textContent = originalText;
-            });
+            fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+                .then(response => response.text())
+                .then(result => {
+                    if (result.trim() === "Success") {
+                        // 2. Hide Form and show Success Message
+                        form.style.opacity = '0';
+                        setTimeout(() => {
+                            form.style.display = 'none';
+                            const successDiv = document.getElementById('form-success');
+                            if (successDiv) {
+                                successDiv.style.display = 'block';
+                                successDiv.scrollIntoView({ behavior: 'smooth' });
+                            }
+                        }, 400);
+                    } else {
+                        throw new Error(result);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error!', error.message);
+                    alert("Error: " + error.message);
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = originalText;
+                });
         });
     }
 });
