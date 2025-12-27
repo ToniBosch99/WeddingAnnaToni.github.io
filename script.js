@@ -244,10 +244,16 @@ document.addEventListener('DOMContentLoaded', function() {
             // Select the submit button to show loading state
             const submitBtn = form.querySelector('button[type="submit"]');
             const originalText = submitBtn.textContent;
+            const formData = new FormData(form);
             
             // UI Feedback: Disable button and show "Sending..."
             submitBtn.disabled = true;
             submitBtn.textContent = (currentLang === "ca") ? "Enviant..." : "Sending...";
+
+            console.log("Attempting to send data to Google...");
+            for (let [key, value] of formData.entries()) {
+                console.log(`${key}: ${value}`);
+            }
 
             // Send data to Google Apps Script
             fetch(scriptURL, { 
