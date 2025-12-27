@@ -425,7 +425,9 @@ footer {
     box-shadow: 0 4px 8px rgba(122, 155, 74, 0.4);
 }
 
-/* MOBILE STYLES */
+
+
+/* ----------- MOBILE STYLES ---------- */
 @media (max-width: 768px) {
     
     header {
@@ -436,6 +438,8 @@ footer {
         background-size: cover;
         background-position: center;
         background-attachment: scroll;
+        background-color: rgba(247, 250, 231, 0.342);
+        color: rgb(255, 255, 255);
     }
 
     h1 {
@@ -459,11 +463,15 @@ footer {
         font-size: 1.1em;
         padding: 0 10px;
         margin-top: 10px;
+        color: rgb(255, 255, 255);
     }
-
+    .invitation-text::after {
+        color: rgb(255, 255, 255);
+    }
     .invitation-subtext {
         font-size: 0.95em;
         padding: 0 15px;
+        color: rgb(255, 255, 255);
     }
 
     section {
