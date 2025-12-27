@@ -430,7 +430,7 @@ footer {
     
     header {
         min-height: 100vh;
-        padding: 80px 15px 60px 15px;
+        padding: 100px 15px 60px 15px;
         background-attachment: scroll;
     }
 
@@ -444,6 +444,7 @@ footer {
 
     .date-time {
         font-size: 1.15em;
+        margin: 15px 0px;
     }
 
     .subtitle {
@@ -453,6 +454,7 @@ footer {
     .invitation-text {
         font-size: 1.1em;
         padding: 0 10px;
+        margin-top: 25px;
     }
 
     .invitation-subtext {
