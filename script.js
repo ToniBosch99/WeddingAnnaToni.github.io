@@ -242,7 +242,10 @@ document.addEventListener('DOMContentLoaded', loadGallery);
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.querySelector('form');
     const scriptURL = 'https://script.google.com/macros/s/AKfycbwR7XLA1aNawyUWXbHP4-yINL-C5tI6fT0GRHfFV1xL7NbzUirDYF_Iiadx99wXu9JAjg/exec';
-
+    
+    // Add the current language (e.g., 'ca' or 'en') to the data being sent
+    formData.append('lang', currentLang);
+    
     if (form) {
         form.addEventListener('submit', function(e) {
             e.preventDefault();
