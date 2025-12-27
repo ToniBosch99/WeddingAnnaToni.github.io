@@ -235,7 +235,7 @@ document.addEventListener('DOMContentLoaded', loadGallery);
 // API per la RSVP
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.querySelector('form');
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbzeVrgv4GCxzgye89_7u-TAlAdnTHLRdzUnxuo6yQUhs-Zufan_d7ql-AvqkWLpGw/exec';
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbxqm0BnnpKUCJAktyTEHLy4yH2Cqbr_OAchWa1_4CSBc_azIpRCH5vS4Z3hmJu5iHSQ/exec';
 
     if (form) {
         form.addEventListener('submit', function(e) {
@@ -275,6 +275,18 @@ document.addEventListener('DOMContentLoaded', function() {
                 const extraGuest = document.querySelector('.guest-form-group');
                 if (extraGuest) {
                     extraGuest.remove();
+                }
+                
+                if (response.trim() === "Success") {
+                    // Hide the form
+                    form.style.display = 'none';
+                    
+                    // Show the success message
+                    const successDiv = document.getElementById('form-success');
+                    successDiv.style.display = 'block';
+                    
+                    // Smooth scroll to the message
+                    successDiv.scrollIntoView({ behavior: 'smooth' });
                 }
             })
             .catch(error => {
