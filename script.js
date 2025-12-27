@@ -235,7 +235,7 @@ document.addEventListener('DOMContentLoaded', loadGallery);
 // API per la RSVP
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.querySelector('form');
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbzDi9jMBgERIr7zaH-F-BEXEUN4PtuCMRVhxXIV8CfjkoNY1vFdNgjC95z5xrkwtfDE/exec';
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbzeVrgv4GCxzgye89_7u-TAlAdnTHLRdzUnxuo6yQUhs-Zufan_d7ql-AvqkWLpGw/exec';
 
     if (form) {
         form.addEventListener('submit', function(e) {
@@ -245,7 +245,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const submitBtn = form.querySelector('button[type="submit"]');
             const originalText = submitBtn.textContent;
             const formData = new FormData(form);
-            
+
             // UI Feedback: Disable button and show "Sending..."
             submitBtn.disabled = true;
             submitBtn.textContent = (currentLang === "ca") ? "Enviant..." : "Sending...";
