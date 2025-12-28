@@ -244,7 +244,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const scriptURL = 'https://script.google.com/macros/s/AKfycbyF944NK9nYJS9-i60ayyM78DlKsNQikmJbhsbLj_hQ1lJByPdzBTKSzHpfCEzDXfKxZw/exec';
     
     // Add the current language (e.g., 'ca' or 'en') to the data being sent
-    formData.append('lang', currentLang);
+    const currentLang = document.documentElement.lang || 'en';
 
     if (form) {
         form.addEventListener('submit', function(e) {
@@ -256,7 +256,13 @@ document.addEventListener('DOMContentLoaded', function() {
             submitBtn.disabled = true;
             submitBtn.textContent = (currentLang === "ca") ? "Enviant..." : "Sending...";
 
-            fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+            // First, capture the form data
+            const formData = new FormData(form);
+            
+            // Append language variable
+            formData.append('lang', currentLang);
+
+            fetch(scriptURL, { method: 'POST', body: formData })
                 .then(response => response.text())
                 .then(result => {
                     if (result.trim() === "Success") {
