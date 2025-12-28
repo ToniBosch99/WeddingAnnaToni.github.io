@@ -243,9 +243,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const form = document.querySelector('form');
     const scriptURL = 'https://script.google.com/macros/s/AKfycbyF944NK9nYJS9-i60ayyM78DlKsNQikmJbhsbLj_hQ1lJByPdzBTKSzHpfCEzDXfKxZw/exec';
     
-    // Add the current language (e.g., 'ca' or 'en') to the data being sent
-    const currentLang = document.documentElement.lang || 'en';
-
     if (form) {
         form.addEventListener('submit', function(e) {
             e.preventDefault();
@@ -263,7 +260,7 @@ document.addEventListener('DOMContentLoaded', function() {
             formData.append('lang', currentLang);
             console.log("Form Data to be sent:");
             console.table(Object.fromEntries(formData));
-            
+
             fetch(scriptURL, { method: 'POST', body: formData })
                 .then(response => response.text())
                 .then(result => {
