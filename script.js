@@ -261,7 +261,9 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Append language variable
             formData.append('lang', currentLang);
-
+            console.log("Form Data to be sent:");
+            console.table(Object.fromEntries(formData));
+            
             fetch(scriptURL, { method: 'POST', body: formData })
                 .then(response => response.text())
                 .then(result => {
