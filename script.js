@@ -8,7 +8,7 @@ const translations = {
         invitation:
             "Ens fa molta il·lusió compartir aquest dia tant especial amb vosaltres.",
         subtext:
-            "Us esperem el divendres 10 d'Abril a les 16:45 a l'Ermita de Sant Joan de Can Roure (Matadepera) per a la cerimònia. Després soparem a la masia La Tartana.",
+            "Us esperem el divendres 10 d'Abril a les 16:45 a l'Ermita de Sant Joan de Can Roure (Matadepera) per a la cerimònia i seguidament soparem a la masia La Tartana.",
         ceremony_title: "Cerimònia i Celebració",
         home_: "Inici",
         ceremony: "Cerimònia",
@@ -203,7 +203,10 @@ function loadGallery() {
         'foto12.jpg',
         'foto13.jpg',
         'foto14.jpg',
-        'foto15.jpg'
+        'foto15.jpg',
+        'foto16.jpg',
+        'foto17.jpg',
+        'foto18.jpg'
         // Add or remove photos as needed
     ];
     
