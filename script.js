@@ -8,7 +8,7 @@ const translations = {
         invitation:
             "Ens fa molta il·lusió compartir aquest dia tant especial amb vosaltres.",
         subtext:
-            "Us esperem el divendres 10 d'Abril a les 05:00 pm a l'Ermita de Sant Joan de Can Roure (Matadepera) i després soparem a la masia La Tartana.",
+            "Us esperem el divendres 10 d'Abril a les 16:45 a l'Ermita de Sant Joan de Can Roure (Matadepera) per a la cerimònia. Després soparem a la masia La Tartana.",
         ceremony_title: "Cerimònia i Celebració",
         home_: "Inici",
         ceremony: "Cerimònia",
@@ -17,7 +17,7 @@ const translations = {
         details: "+ Detalls",
         duration: "Durada:",
         durationCeremony: "Aproximadament 1 hora",
-        durationReception: "De 18:30 pm a 3:00 am",
+        durationReception: "De 18:30 a 3:00",
         parkingCeremony: "Aparcament gratuït al costat de l'ermita",
         parkingReception: "Aparcament gratuït al lloc",
         address: "Adreça:", 
@@ -54,7 +54,7 @@ const translations = {
         invitation:
             "We are thrilled to share this special day with you.",
         subtext:
-            "We look forward to seeing you on Friday, April 10th at 5:00 pm at the Chapel of Sant Joan de Can Roure (Matadepera) followed by dinner at Masia La Tartana .",
+            "We look forward to seeing you on Friday, April 10th at 4:45 pm at the Chapel of Sant Joan de Can Roure (Matadepera) for the ceremony, followed by dinner at Masia La Tartana.",
         ceremony_title: "Ceremony & Reception",
         home_: "Home",
         ceremony: "Ceremony",
