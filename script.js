@@ -33,7 +33,7 @@ const translations = {
         attending: "Assistiré",
         not_attending: "No podré assistir",
         maybe: "No estic segur",
-        guests: "Vens amb acompanyant?",
+        guests: "Vinc amb acompanyant",
         dietary: "Alèrgies o preferències alimentàries",
         submit: "Enviar",
         attendQuestion: "Assistireu a la nostra boda?*",
@@ -80,7 +80,7 @@ const translations = {
         attending: "Yes, I'll be there!",
         not_attending: "Sorry, I can't attend", 
         maybe: "I'm not sure",
-        guests: "Will you bring a guest?",
+        guests: "I'm bringing a guest ",
         dietary: "Dietary Restrictions",
         submit: "Submit RSVP",
         attendQuestion: "Will you attend our wedding?*",
@@ -150,15 +150,15 @@ guestCheckbox.addEventListener('change', function() {
     const existingGuestForms = form.querySelectorAll('.guest-form-group');
     existingGuestForms.forEach(el => el.remove());
     // 1. Update the Yes/No text based on language
-    if (this.checked) {
-        statusText.textContent = (currentLang === "ca") ? "Sí" : "Yes";
-        statusText.style.color = "#7a9b4a"; // Green for Yes
-        statusText.style.fontWeight = "bold";
-    } else {
-        statusText.textContent = (currentLang === "ca") ? "No" : "No";
-        statusText.style.color = "#666"; // Grey for No
-        statusText.style.fontWeight = "normal";
-    }
+    // if (this.checked) {
+    //     statusText.textContent = (currentLang === "ca") ? "Sí" : "Yes";
+    //     statusText.style.color = "#7a9b4a"; // Green for Yes
+    //     statusText.style.fontWeight = "bold";
+    // } else {
+    //     statusText.textContent = (currentLang === "ca") ? "No" : "No";
+    //     statusText.style.color = "#666"; // Grey for No
+    //     statusText.style.fontWeight = "normal";
+    // }
 
     // 2. Handle the extra name field logic
     
