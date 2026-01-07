@@ -274,10 +274,11 @@ document.addEventListener('DOMContentLoaded', function() {
             submitBtn.innerHTML = `<span class="spinner"></span> ${loadingText}`;
 
             const formData = new FormData(form);
-            // Check if 'guests' is in formData. 
-            // If it's NOT (unchecked), append '1'.
-            if (!formData.has('guests')) {
-                formData.append('guests', '1');
+            // Check if 'guests' is in formData. If it's NOT (unchecked), append '1'.
+            const guestsValue = formData.get('guests');
+            if (guestsValue !== "2") {
+                // .set() overrides any existing value or creates it if it doesn't exist
+                formData.set('guests', '1');
             }
             formData.append('lang', currentLang);
             // logs
