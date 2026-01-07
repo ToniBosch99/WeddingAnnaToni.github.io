@@ -325,11 +325,6 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // -------------- Event Listeners
-document.addEventListener("DOMContentLoaded", function () {
-    setLanguage("ca");
-});
-
-
 
 /* Navbar Shrink on Scroll */
 window.addEventListener('scroll', function () {
