@@ -42,8 +42,8 @@
         <ul>
              <li><a href="#header" data-i18n="home_"></a></li>
             <li><a href="#ceremony" data-i18n="ceremony_title"></a></li>
-            <li><a href="#photos" data-i18n="gallery"></a></li>
             <li><a href="#rsvp" data-i18n="rsvp"></a></li>
+            <li><a href="#photos" data-i18n="gallery"></a></li>    
         </ul>
     </nav>
 
@@ -57,20 +57,17 @@
                 <a href="https://maps.app.goo.gl/REgoHHVbLeNiM9Jx7" target="_blank" class="image-link">
                     <img src="images/Ceremony.png" alt="Ermita de Sant Joan de Can Roure" class="event-image">
                 </a>
-                <p><span class="label" data-i18n="time"></span> 5:00 PM</p>
+                <p style="margin-top: 15px;">
+                    <a href="https://maps.app.goo.gl/REgoHHVbLeNiM9Jx7" target="_blank" style="color: #7a9b4a; text-decoration: underline;">
+                        <span data-i18n="veureMaps"></span>
+                    </a>
+                </p>
                 <button class="small-details-btn" onclick="toggleCeremonyDetails()" data-i18n="details"></button>
                 <div id="ceremonyDetails" style="display: none; margin-top: 15px;">
-                    <p><span class="label" data-i18n="duration"></span> 
-                        <span data-i18n="durationCeremony"></span></p>
                     <p><span class="label" data-i18n="address">
                         </span> Ermita de Sant Joan de Can Roure, Matadepera, 08230, Barcelona</p>
                     <p><span class="label" data-i18n="parking"></span>
                          <span data-i18n="parkingCeremony"></span></p>
-                    <p style="margin-top: 15px;">
-                        <a href="https://maps.app.goo.gl/REgoHHVbLeNiM9Jx7" target="_blank" style="color: #7a9b4a; text-decoration: underline;">
-                            <span data-i18n="veureMaps"></span>
-                        </a>
-                    </p>
                 </div>
             </div>
 
@@ -80,28 +77,21 @@
                 <a href="https://maps.app.goo.gl/udHAknXw5Ua3ioRb8" target="_blank" class="image-link">
                     <img src="images/Reception.png" alt="Masia La Tartana" class="event-image">
                 </a>
-                <p><span class="label" data-i18n="time"></span> ~6:30 PM</p>
+                <p style="margin-top: 15px;">
+                    <a href="https://maps.app.goo.gl/udHAknXw5Ua3ioRb8" target="_blank" style="color: #7a9b4a; text-decoration: underline;">
+                    <span data-i18n="veureMaps"></span>
+                    </a>
+                </p>
                 <button class="small-details-btn" onclick="toggleReceptionDetails()" data-i18n="details"></button>
                 <div id="receptionDetails" style="display: none; margin-top: 15px;">
-                    <p><span class="label" data-i18n="duration"></span> 
-                        <span data-i18n="durationReception"></span></p>
                     <p><span class="label" data-i18n="address"></span> Camí de la Font de la Tartana, 82, 08230 Matadepera, Barcelona</p>
                     <p><span class="label" data-i18n="parking"></span> 
                         <span data-i18n="parkingReception"></span></p>
-                    <p style="margin-top: 15px;">
-                        <a href="https://maps.app.goo.gl/udHAknXw5Ua3ioRb8" target="_blank" style="color: #7a9b4a; text-decoration: underline;">
-                    <span data-i18n="veureMaps"></span>
-                    </a>
-                    </p>
+                    
             </div>
         </div>
     </section>
 
-
-    <section id="photos">
-        <h2 data-i18n="gallery"></h2>
-        <!-- Gallery will be loaded dynamically by JavaScript -->
-    </section>
 
     <section id="rsvp">
         <h2 data-i18n="rsvp"></h2>
@@ -124,22 +114,21 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="guests" data-i18n="guests"></label>
-                    <select id="guests" name="guests" required>
-                        <option value="">...</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
                     <label for="attending" data-i18n="attendQuestion"></label>
                     <select id="attending" name="attending" required>
-                        <option value=""  data-i18n="maybe"></option>
-                        <option value="yes" data-i18n="attending"></option>
+                        <option value="yes"  data-i18n="attending"></option>
                         <option value="no" data-i18n="not_attending"></option>
-                        <option value="maybe" data-i18n="maybe"></option>
                     </select>
+                </div>
+                
+                <div class="form-group checkbox-group">
+                    <label class="checkbox-container">
+                        <span data-i18n="guests"></span>
+                        <div class="checkbox-wrapper">
+                            <span id="guest-status" class="status-text">No</span>
+                            <input type="checkbox" id="guests" name="guests" value="2">
+                        </div>
+                    </label>
                 </div>
 
                 <div class="form-group">
@@ -157,6 +146,11 @@
                     <textarea id="song" name="song"></textarea>
                 </div>
 
+                <div class="form-group">
+                    <label for="other" data-i18n="Anything_else"></label>
+                    <textarea id="other" name="other"></textarea>
+                </div>
+
                 <button type="submit" data-i18n="submit"></button>
             </form>
         </div>
@@ -166,12 +160,29 @@
         <h3 data-i18n="thanks_title" data-i18n="thanks_title"></h3>
         <p data-i18n="thanks_msg" data-i18n="thanks_msg"></p>
     </div>
+
+    <section id="photos">
+        <h2 data-i18n="gallery"></h2>
+        <!-- Gallery will be loaded dynamically by JavaScript -->
+    </section>
 </div>
     <footer>
-        <p>&copy; 2025 Anna & Toni. All rights reserved.</p>
-        <p style="margin-top: 10px; font-size: 0.9em;" data-i18n="final"></p>
-        </p>
+        <p data-i18n="final"></p>
+        
+        <div class="contact-info">
+            <div class="contact-item">
+                <strong>Anna:</strong> 
+                <a href="tel:+34653448832">+34 653 448 832</a> | 
+                <a href="mailto:annamacmanusr@gmail.com">annamacmanusr@gmail.com</a>
+            </div>
+            <div class="contact-item">
+                <strong>Toni:</strong> 
+                <a href="tel:+34619904359">+34 619 904 359</a> | 
+                <a href="mailto:tonibo99@gmail.com">tonibo99@gmail.com</a>
+            </div>
+        </div>
+        <p style="margin-top: 10px; font-size: 0.9em;" > &copy; 2025 Anna & Toni. All rights reserved.</p>
+
     </footer>
 </body> 
 </html>
-

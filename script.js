@@ -33,18 +33,19 @@ const translations = {
         attending: "Assistiré",
         not_attending: "No podré assistir",
         maybe: "No estic segur",
-        guests: "Número de convidats",
+        guests: "Vens amb acompanyant?",
         dietary: "Alèrgies o preferències alimentàries",
         submit: "Enviar",
         attendQuestion: "Assistireu a la nostra boda?*",
         message: "Missatge per als nuvis",
-        song: "Una cançó per a que soni al nostre casament",
+        song: "Suggeriments per a la playlist del casament?",
         about: "Sobre",
         adress:"Adreça *",
         final: "Us hi esperem!",
         thks: "Gràcies!",
         thanks_title: "Gràcies!",
-        thanks_msg: "Hem rebut la vostra resposta correctament."
+        thanks_msg: "Hem rebut la vostra resposta correctament.",
+        Anything_else: "Alguna cosa més que vulgueu comentar-nos?"
 
     },
 
@@ -52,9 +53,9 @@ const translations = {
         subtitle: "We are getting married!",
         date: "Friday, April 10th, 2026",
         invitation:
-            "We are thrilled to share this special day with you.",
+            "We would be thrilled to share this special day with you.",
         subtext:
-            "We look forward to seeing you on Friday, April 10th at 4:45 pm at the Chapel of Sant Joan de Can Roure (Matadepera) for the ceremony, followed by dinner at Masia La Tartana.",
+            "We would love you to be with us on Friday, April 10th at 4:45 pm at the Chapel of Sant Joan de Can Roure (Matadepera) for the ceremony, followed by a reception at Masia La Tartana.",
         ceremony_title: "Ceremony & Reception",
         home_: "Home",
         ceremony: "Ceremony",
@@ -79,19 +80,19 @@ const translations = {
         attending: "Yes, I'll be there!",
         not_attending: "Sorry, I can't attend", 
         maybe: "I'm not sure",
-        guests: "Number of Guests",
+        guests: "Will you bring a guest?",
         dietary: "Dietary Restrictions",
         submit: "Submit RSVP",
         attendQuestion: "Will you attend our wedding?*",
         message: "Message for the Couple",
-        song: "A song that can't be missed",
+        song: "Would you like to suggest a song for the wedding playlist?",
         about: "About",
-        adress: "Adress *",
+        adress: "Address *",
         final: "Looking forward to see you!",
         thks: "Thank you!",
         thanks_title: "Thank you!",
-        thanks_msg: "We have received your RSVP successfully."
-
+        thanks_msg: "We have received your RSVP successfully.",
+        Anything_else: "Anything else you'd like us to know?"
     }
 };
 
@@ -140,39 +141,42 @@ function toggleReceptionDetails() {
 }
 
 // Per als  +1s
-document.addEventListener('DOMContentLoaded', function() {
-    const guestSelect = document.getElementById('guests');
+// Replace the guestSelect listener with this:
+const guestCheckbox = document.getElementById('guests');
+const statusText = document.getElementById('guest-status');
+
+guestCheckbox.addEventListener('change', function() {
+    const form = document.querySelector('form');
+    const existingGuestForms = form.querySelectorAll('.guest-form-group');
+    existingGuestForms.forEach(el => el.remove());
+    // 1. Update the Yes/No text based on language
+    if (this.checked) {
+        statusText.textContent = (currentLang === "ca") ? "Sí" : "Yes";
+        statusText.style.color = "#7a9b4a"; // Green for Yes
+        statusText.style.fontWeight = "bold";
+    } else {
+        statusText.textContent = (currentLang === "ca") ? "No" : "No";
+        statusText.style.color = "#666"; // Grey for No
+        statusText.style.fontWeight = "normal";
+    }
+
+    // 2. Handle the extra name field logic
     
-    guestSelect.addEventListener('change', function() {
-        const numGuests = parseInt(this.value);
-        const form = document.querySelector('form');
+
+    if (this.checked) {
+        const guestFormGroup = this.closest('.form-group');
+        const newFormGroup = document.createElement('div');
+        newFormGroup.className = 'form-group guest-form-group';
+        newFormGroup.innerHTML = `
+            <label for="guest2_name" data-i18n="nameExtra"></label>
+            <input type="text" id="guest2_name" name="guest2_name" required>
+        `;
+        guestFormGroup.insertAdjacentElement('afterend', newFormGroup);
         
-        // Remove existing guest forms if any
-        const existingGuestForms = form.querySelectorAll('.guest-form-group');
-        existingGuestForms.forEach(el => el.remove());
-        
-        // If 2 guests selected, add second guest form
-        if (numGuests === 2) {
-            // Find the guests form group to insert after it
-            const guestFormGroup = guestSelect.closest('.form-group');
-            
-            // Create new form group for second guest
-            const newFormGroup = document.createElement('div');
-            newFormGroup.className = 'form-group guest-form-group';
-            newFormGroup.innerHTML = `
-                <label for="guest2_name" data-i18n="nameExtra"></label>
-                <input type="text" id="guest2_name" name="guest2_name" required>
-            `;
-            
-            // Insert after the guests dropdown
-            guestFormGroup.insertAdjacentElement('afterend', newFormGroup);
-            
-            // Re-apply translations if language feature is active
-            if (typeof setLanguage !== 'undefined') {
-                updateNewFieldTranslations();
-            }
+        if (typeof setLanguage !== 'undefined') {
+            updateNewFieldTranslations();
         }
-    });
+    }
 });
 
 // Helper function to translate newly added fields
@@ -273,9 +277,13 @@ document.addEventListener('DOMContentLoaded', function() {
                         setTimeout(() => {
                             form.style.display = 'none';
                             const successDiv = document.getElementById('form-success');
+                            const guestDiv = document.getElementById('guests-section');
                             if (successDiv) {
                                 successDiv.style.display = 'block';
                                 successDiv.scrollIntoView({ behavior: 'smooth' });
+                            }
+                            if (guestDiv) {
+                                guestDiv.style.display = 'none';
                             }
                         }, 400);
                     } else {
@@ -295,18 +303,6 @@ document.addEventListener('DOMContentLoaded', function() {
 // -------------- Event Listeners
 document.addEventListener("DOMContentLoaded", function () {
     setLanguage("ca");
-
-    const form = document.querySelector("form");
-    if (form) {
-        form.addEventListener("submit", function (e) {
-            e.preventDefault();
-            const confMsg = (currentLang === "ca")
-                    ? "Estem enviant la teva resposta!"
-                    : "We are sending your RSVP!";
-                alert(confMsg);
-            this.reset();
-        });
-    }
 });
 
 /* Navbar Shrink on Scroll */

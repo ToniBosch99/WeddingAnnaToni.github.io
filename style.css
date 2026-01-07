@@ -425,7 +425,72 @@ footer {
     box-shadow: 0 4px 8px rgba(122, 155, 74, 0.4);
 }
 
+.checkbox-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    font-weight: bold;
+    padding: 12px;
+    background: #f6faf3;
+    border-radius: 8px;
+    border: 1px solid #eee;
+}
 
+.checkbox-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Space between the Yes/No text and the box */
+}
+
+.status-text {
+    font-size: 0.9em;
+    color: #666;
+    font-weight: normal;
+    min-width: 30px;
+    text-align: right;
+}
+
+.checkbox-wrapper input {
+    width: 22px;
+    height: 22px;
+    cursor: pointer;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 40px 20px;
+    margin-top: 40px;
+}
+
+.contact-info {
+    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 0.95em;
+}
+
+.contact-item a {
+    color: #b8d878; /* Using your wedding green for links */
+    text-decoration: none;
+    transition: opacity 0.3s;
+}
+
+.contact-item a:hover {
+    text-decoration: underline;
+    opacity: 0.8;
+}
+
+@media (min-width: 768px) {
+    .contact-info {
+        flex-direction: row;
+        justify-content: center;
+        gap: 30px;
+    }
+}
 
 /* ----------- MOBILE STYLES ---------- */
 @media (max-width: 768px) {
@@ -438,7 +503,7 @@ footer {
         background-size: cover;
         background-position: center;
         background-attachment: scroll;
-        background-color: rgba(247, 250, 231, 0.342);
+        background-color: rgba(247, 250, 231, 0.530);
         color: rgb(255, 255, 255);
     }
 
@@ -489,5 +554,10 @@ footer {
 
     .event-image {
         max-height: 180px;
+    }
+    .contact-info {
+        flex-direction: row;
+        justify-content: center;
+        gap: 30px;
     }
 }
