@@ -254,17 +254,17 @@ document.addEventListener('DOMContentLoaded', function() {
         form.addEventListener('submit', function(e) {
             e.preventDefault();
 
-            // 1. Show Loading State
             const submitBtn = form.querySelector('button[type="submit"]');
             const originalText = submitBtn.textContent;
-            submitBtn.disabled = true;
-            submitBtn.textContent = (currentLang === "ca") ? "Enviant..." : "Sending...";
-
-            // First, capture the form data
-            const formData = new FormData(form);
             
-            // Append language variable
+            // 1. Show Loading State with Spinner
+            submitBtn.disabled = true;
+            const loadingText = (currentLang === "ca") ? "Enviant..." : "Sending...";
+            submitBtn.innerHTML = `<span class="spinner"></span> ${loadingText}`;
+
+            const formData = new FormData(form);
             formData.append('lang', currentLang);
+            // logs
             console.log("Form Data to be sent:");
             console.table(Object.fromEntries(formData));
 

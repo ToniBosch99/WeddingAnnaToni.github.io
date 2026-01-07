@@ -504,6 +504,32 @@ footer {
     margin-bottom: 10px;
 }
 
+
+/* Loading Spinner Styling */
+.spinner {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: #fff;
+    animation: spin 1s ease-in-out infinite;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Ensure the button looks active during loading */
+button:disabled {
+    background-color: #9cb47a; /* A lighter version of your green */
+    cursor: not-allowed;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
 @media (min-width: 768px) {
     .contact-info {
         flex-direction: row;
