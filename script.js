@@ -248,7 +248,7 @@ document.addEventListener('DOMContentLoaded', loadGallery);
 // API per la RSVP
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.querySelector('form');
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbyF944NK9nYJS9-i60ayyM78DlKsNQikmJbhsbLj_hQ1lJByPdzBTKSzHpfCEzDXfKxZw/exec';
+    const scriptURL = "https://script.google.com/macros/s/AKfycbz7M4vevfeLT_nxG9mM4HCFgucnMm5ruUX4fRrAeFpnGvaXkVhSGDXfdP2zq_tcr04XYA/exec";
     
     if (form) {
         form.addEventListener('submit', function(e) {
@@ -345,3 +345,23 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
+
+// LANGUAGES URL
+function getLanguageFromURL() {
+  const params = new URLSearchParams(window.location.search);
+  return params.get("lang");
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  const lang = getLanguageFromURL() || "ca";
+  setLanguage(lang);
+});
+
+function switchLanguage(lang) {
+  setLanguage(lang);
+
+  const url = new URL(window.location);
+  url.searchParams.set("lang", lang);
+  window.history.replaceState({}, "", url);
+}
