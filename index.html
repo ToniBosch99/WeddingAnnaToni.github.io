@@ -96,7 +96,7 @@
     <section id="rsvp">
         <h2 data-i18n="rsvp"></h2>
         <p style="text-align: center; margin-bottom: 30px;" data-i18n="subRsvp"></p>
-        <div class="guests-section">
+        <div id="rsvp-sec" class="guests-section">
             <form>
                 <div class="form-group">
                     <label for="name" data-i18n="name"></label>
@@ -154,12 +154,14 @@
                 <button type="submit" data-i18n="submit"></button>
             </form>
         </div>
+
     </section>
-       <div id="form-success" style="display:none; text-align: center; padding: 40px; border: 2px solid #eef2d0; border-radius: 15px; background: #fff;">
-        <h2 style="color: #7a9b4a; font-size: 2.5em;">♥</h2>
-        <h3 data-i18n="thanks_title" data-i18n="thanks_title"></h3>
-        <p data-i18n="thanks_msg" data-i18n="thanks_msg"></p>
-    </div>
+        <div id="form-success" class="success-container">
+            <h2 class="heart-icon">♥</h2>
+            <h3 data-i18n="thanks_title"></h3>
+            <p data-i18n="thanks_msg"></p>
+        </div>
+    </section>
 
     <section id="photos">
         <h2 data-i18n="gallery"></h2>

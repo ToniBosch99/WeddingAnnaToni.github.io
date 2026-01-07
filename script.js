@@ -274,10 +274,17 @@ document.addEventListener('DOMContentLoaded', function() {
                     if (result.trim() === "Success") {
                         // 2. Hide Form and show Success Message
                         form.style.opacity = '0';
+                        
+                        const guestDiv = document.getElementById('rsvp-sec');
+                        if (guestDiv) {
+                                guestDiv.style.transition = 'opacity 0.4s ease';
+                                guestDiv.style.opacity = '0';
+                            }
+
                         setTimeout(() => {
                             form.style.display = 'none';
                             const successDiv = document.getElementById('form-success');
-                            const guestDiv = document.getElementById('guests-section');
+                            
                             if (successDiv) {
                                 successDiv.style.display = 'block';
                                 successDiv.scrollIntoView({ behavior: 'smooth' });

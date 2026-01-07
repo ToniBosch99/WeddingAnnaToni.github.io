@@ -484,6 +484,26 @@ footer {
     opacity: 0.8;
 }
 
+#form-success {
+    display: none; /* Hidden by default */
+}
+
+.success-container {
+    text-align: center;
+    padding: 40px;
+    border: 2px solid #eef2d0;
+    border-radius: 15px;
+    background: #ffffff;
+    max-width: 600px; /* Optional: keeps it from stretching too wide */
+    margin: 20px auto;
+}
+
+.heart-icon {
+    color: #7a9b4a;
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
 @media (min-width: 768px) {
     .contact-info {
         flex-direction: row;
