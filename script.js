@@ -109,9 +109,20 @@ function setLanguage(lang) {
         lang === "ca" ? "ENG" : "CAT";
 }
 
-function toggleLanguage() {
-    setLanguage(currentLang === "ca" ? "en" : "ca");
+
+function updateLangInURL(lang) {
+    const url = new URL(window.location);
+    url.searchParams.set("lang", lang);
+    window.history.replaceState({}, "", url);
 }
+
+
+function toggleLanguage() {
+    const newLang = currentLang === "ca" ? "en" : "ca";
+    setLanguage(newLang);
+    updateLangInURL(newLang);
+}
+
 
 /* ALTRES FUNCIONS */
 function toggleCeremonyDetails() {
@@ -248,7 +259,7 @@ document.addEventListener('DOMContentLoaded', loadGallery);
 // API per la RSVP
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.querySelector('form');
-    const scriptURL = "https://script.google.com/macros/s/AKfycbz7M4vevfeLT_nxG9mM4HCFgucnMm5ruUX4fRrAeFpnGvaXkVhSGDXfdP2zq_tcr04XYA/exec";
+    const scriptURL = "https://script.google.com/macros/s/AKfycbzwEA0QA3GPVRfv_hoBJLpaN2jKYQrArfglIbQbMET7who4Zo8O5k1qsu_am6kK-znQ0Q/exec";
     
     if (form) {
         form.addEventListener('submit', function(e) {
@@ -312,6 +323,8 @@ document.addEventListener("DOMContentLoaded", function () {
     setLanguage("ca");
 });
 
+
+
 /* Navbar Shrink on Scroll */
 window.addEventListener('scroll', function () {
     const nav = document.querySelector('nav');
@@ -353,15 +366,10 @@ function getLanguageFromURL() {
   return params.get("lang");
 }
 
+
 document.addEventListener("DOMContentLoaded", () => {
-  const lang = getLanguageFromURL() || "ca";
-  setLanguage(lang);
+    const urlLang = getLangFromURL();
+    setLanguage(urlLang === "en" ? "en" : "ca");
 });
 
-function switchLanguage(lang) {
-  setLanguage(lang);
 
-  const url = new URL(window.location);
-  url.searchParams.set("lang", lang);
-  window.history.replaceState({}, "", url);
-}
