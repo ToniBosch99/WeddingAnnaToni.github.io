@@ -274,6 +274,11 @@ document.addEventListener('DOMContentLoaded', function() {
             submitBtn.innerHTML = `<span class="spinner"></span> ${loadingText}`;
 
             const formData = new FormData(form);
+            // Check if 'guests' is in formData. 
+            // If it's NOT (unchecked), append '1'.
+            if (!formData.has('guests')) {
+                formData.append('guests', '1');
+            }
             formData.append('lang', currentLang);
             // logs
             console.log("Form Data to be sent:");
