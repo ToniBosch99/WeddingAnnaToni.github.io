@@ -1,5 +1,41 @@
-/* TRADUCCIÓ */
+/* ----------------- TRADUCCIÓ --------------- */
 let currentLang = "ca";
+
+// LANGUAGES URL
+function getLanguageFromURL() {
+  const params = new URLSearchParams(window.location.search);
+  return params.get("lang");
+}
+
+function updateLanguageURL(lang) {
+    const url = new URL(window.location);
+    url.searchParams.set("lang", lang);
+    window.history.replaceState({}, "", url);
+}
+
+function setLanguage(lang) {
+    document.querySelectorAll("[data-i18n]").forEach(el => {
+        const key = el.dataset.i18n;
+        if (translations[lang][key]) {
+            el.textContent = translations[lang][key];
+        }
+    });
+
+    currentLang = lang;
+    document.querySelector(".lang-toggle").textContent =
+        lang === "ca" ? "ENG" : "CAT";
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    const urlLang = getLanguageFromURL();
+    setLanguage(urlLang === "en" ? "en" : "ca");
+});
+
+function toggleLanguage() {
+    const newLang = currentLang === "ca" ? "en" : "ca";
+    setLanguage(newLang);
+    updateLanguageURL(newLang);
+}
 
 const translations = {
     ca: {
@@ -95,34 +131,6 @@ const translations = {
         Anything_else: "Anything else you'd like us to know?"
     }
 };
-
-function setLanguage(lang) {
-    document.querySelectorAll("[data-i18n]").forEach(el => {
-        const key = el.dataset.i18n;
-        if (translations[lang][key]) {
-            el.textContent = translations[lang][key];
-        }
-    });
-
-    currentLang = lang;
-    document.querySelector(".lang-toggle").textContent =
-        lang === "ca" ? "ENG" : "CAT";
-}
-
-
-function updateLangInURL(lang) {
-    const url = new URL(window.location);
-    url.searchParams.set("lang", lang);
-    window.history.replaceState({}, "", url);
-}
-
-
-function toggleLanguage() {
-    const newLang = currentLang === "ca" ? "en" : "ca";
-    setLanguage(newLang);
-    updateLangInURL(newLang);
-}
-
 
 /* ALTRES FUNCIONS */
 function toggleCeremonyDetails() {
@@ -361,16 +369,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-// LANGUAGES URL
-function getLanguageFromURL() {
-  const params = new URLSearchParams(window.location.search);
-  return params.get("lang");
-}
 
 
-document.addEventListener("DOMContentLoaded", () => {
-    const urlLang = getLangFromURL();
-    setLanguage(urlLang === "en" ? "en" : "ca");
-});
 
 
